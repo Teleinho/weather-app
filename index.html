@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>"weather"</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
     </head>
     <body>
-        
+        <div class="bg-overlay"></div>
+        <div class="app">
+
+            <!--HEADER-->
+            <header>
+                <h1 class="logo">skies</h1>
+                <div class="unit-toggle">
+                    <button id="btn-c" class="active">°C</button> <!--celsius is active-->
+                    <button id="btn-f">°F</button>
+                </div>
+            </header>
+
+            <!--SEARCH-->
+            <section class="search-section">
+                <div class="search-wrap">
+                    <input type="text" id="search-input" placeholder="Search city..."/>
+                    <button id="geo-btn">📍</button>
+                    <button id="search-btn">Search</button>
+                </div>
+            </section>
+
+            <!--CURRENT WEATHER-->
+            <section class="current-weather" id="current-weather">
+                <div class="location">
+                    <span id="city-name">Berlin</span>
+                    <span id="country">Germany · Thursday, April 23</span>
+                </div>
+                <div class="temp-block">
+                    <h2 id="temp-main">18°</h2>
+                    <p id="condition-label">"Stormy with partly cloudy</p>
+                    <p id="feels-like">Feels like 15°</p>
+                </div>
+                <img id="weather-icon" src="partly-cloudy.png" alt="icon">
+            </section>
+
+            <!--STATS-->
+            <section class="stats-grid" id="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-label">Humidity</p>
+                    <p class="stat-value" id="humidity">--%</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Wind</p>
+                    <p class="stat-value" id="wind">-- m/s</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Pressure</p>
+                    <p class="stat-value" id="pressure">-- hPa</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">Visibility</p>
+                    <p class="stat-value" id="visibility">-- km</p>
+                </div>
+            </section>
+
+            <!--FORECAST-->
+            <section class="forecast-section" id="forecast-section">
+                <p class="section-label">5-Day Forecast</p>
+                <div class="forecast-grid" id="forecast-grid">
+
+                </div>
+                </section>
+
+        </div>
+
+        <script src="script.js"></script>
     </body>
 </html>
