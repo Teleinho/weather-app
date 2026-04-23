@@ -1,6 +1,6 @@
 const API_BASE = 'https://api.openweathermap.org/data/2.5';
 
-// ── Selektori ──
+// ── selektori ──
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const geoBtn = document.getElementById('geo-btn');
@@ -42,7 +42,7 @@ async function fetchWeather(city) {
       fetch(`${API_BASE}/forecast?q=${city}&units=${currentUnit}&cnt=40&appid=${API_KEY}`)
     ]);
 
-    if (!currentRes.ok) throw new Error('Grad nije pronađen');
+    if (!currentRes.ok) throw new Error('City not found');
 
     const current = await currentRes.json();
     const forecast = await forecastRes.json();
@@ -69,14 +69,14 @@ async function fetchWeatherByCoords(lat, lon) {
     renderCurrent(current);
     renderForecast(forecast);
   } catch (err) {
-    alert('Greška pri dohvatanju lokacije');
+    alert('Location not recognized.');
   }
 }
 
 // ── Render current weather ──
 function renderCurrent(data) {
   const unit = currentUnit === 'metric' ? '°C' : '°F';
-
+  console.log('Icon kod:', data.weather[0].icon);
   document.getElementById('city-name').textContent = data.name;
   document.getElementById('country-date').textContent =
     `${data.sys.country} · ${formatDate(data.dt)}`;
@@ -86,8 +86,12 @@ function renderCurrent(data) {
     data.weather[0].description;
   document.getElementById('feels-like').textContent =
     `Feels like ${Math.round(data.main.feels_like)}${unit}`;
-  document.getElementById('weather-icon').src =
-    `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const icon = document.getElementById('weather-icon');
+    icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    icon.style.display = 'block';
+    icon.style.width = '80px';
+    icon.style.height = '80px';
+    icon.onerror = () => { icon.style.display = 'none'; };
 
   document.getElementById('humidity').textContent = `${data.main.humidity}%`;
   document.getElementById('wind').textContent = `${Math.round(data.wind.speed)} ${currentUnit === 'metric' ? 'm/s' : 'mph'}`;

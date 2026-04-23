@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>"weather"</title>
+        <title>Tweather</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛅</text></svg>">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -14,7 +15,7 @@
 
             <!--HEADER-->
             <header>
-                <h1 class="logo">skies</h1>
+                <h1 class="logo">SKIES</h1>
                 <div class="unit-toggle">
                     <button id="btn-c" class="active">°C</button> <!--celsius is active-->
                     <button id="btn-f">°F</button>
@@ -34,14 +35,14 @@
             <section class="current-weather" id="current-weather">
                 <div class="location">
                     <span id="city-name">Berlin</span>
-                    <span id="country">Germany · Thursday, April 23</span>
+                    <span id="country-date">Germany · Thursday, April 23</span>
                 </div>
                 <div class="temp-block">
                     <h2 id="temp-main">18°</h2>
                     <p id="condition-label">"Stormy with partly cloudy</p>
                     <p id="feels-like">Feels like 15°</p>
                 </div>
-                <img id="weather-icon" src="partly-cloudy.png" alt="icon">
+                <img id="weather-icon" src="" alt="icon" style="display:none;">
             </section>
 
             <!--STATS-->
